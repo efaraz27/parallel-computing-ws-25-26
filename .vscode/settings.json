@@ -1,0 +1,8 @@
+{
+    "cmake.sourceDirectory": "/Users/efaraz27/Desktop/Projects/parl_comp/ex2",
+    "files.associations": {
+        "*.dbclient-js": "javascript",
+        "queue": "c",
+        "stack": "c"
+    }
+}
