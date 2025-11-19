@@ -10,7 +10,7 @@ void sequential_pi(long num_steps) {
 
     double start_time = omp_get_wtime();
 
-    for (int i = 0; i < num_steps; i++) {
+    for (long i = 0; i < num_steps; i++) {
         x = (i + 0.5) * step;
         sum = sum + 4.0 / (1.0 + x * x);
     }
@@ -29,7 +29,7 @@ void block_decomposition_pi(long num_steps) {
 
     int max_threads = omp_get_max_threads();
     double partial_sums[max_threads];
-    for (int i = 0; i < max_threads; i++) {
+    for (long i = 0; i < max_threads; i++) {
         partial_sums[i] = 0.0;
     }
     double start_time = omp_get_wtime();
@@ -46,7 +46,7 @@ void block_decomposition_pi(long num_steps) {
 
         long end = (id == num_threads - 1) ? num_steps : start + chunk_size;
 
-        for (int i = start; i < end; i++) {
+        for (long i = start; i < end; i++) {
             x = (i + 0.5) * step;
             local_sum = local_sum + 4.0 / (1.0 + x * x);
         }
@@ -54,7 +54,7 @@ void block_decomposition_pi(long num_steps) {
         partial_sums[id] = local_sum;
     }
 
-    for (int i = 0; i < max_threads; i++) {
+    for (long i = 0; i < max_threads; i++) {
         sum += partial_sums[i];
     }
 
@@ -71,7 +71,7 @@ void cyclic_distribution_pi(long num_steps) {
     double pi, sum = 0.0;
     int max_threads = omp_get_max_threads();
     double partial_sums[max_threads];
-    for (int i = 0; i < max_threads; i++) {
+    for (long i = 0; i < max_threads; i++) {
         partial_sums[i] = 0.0;
     }
     double start_time = omp_get_wtime();
@@ -83,7 +83,7 @@ void cyclic_distribution_pi(long num_steps) {
         int num_threads = omp_get_num_threads();
         double local_sum = 0.0;
 
-        for (int i = id; i < num_steps; i += num_threads) {
+        for (long i = id; i < num_steps; i += num_threads) {
             x = (i + 0.5) * step;
             local_sum = local_sum + 4.0 / (1.0 + x * x);
         }
@@ -91,7 +91,7 @@ void cyclic_distribution_pi(long num_steps) {
         partial_sums[id] = local_sum;
     }
 
-    for (int i = 0; i < max_threads; i++) {
+    for (long i = 0; i < max_threads; i++) {
         sum += partial_sums[i];
     }
 
