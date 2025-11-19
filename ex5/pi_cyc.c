@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-static long global_num_steps = 100000000000000;
+static long global_num_steps = 1000000000000;
 
 void sequential_pi(long num_steps) {
     double step = 1.0 / (double)num_steps;
