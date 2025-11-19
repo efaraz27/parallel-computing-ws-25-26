@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-static long global_num_steps = 1000000000;
+static long global_num_steps = 100000000000000;
 
 void sequential_pi(long num_steps) {
     double step = 1.0 / (double)num_steps;
@@ -27,9 +27,9 @@ void block_decomposition_pi(long num_steps) {
     double step = 1.0 / (double)num_steps;
     double pi, sum = 0.0;
 
-    int num_threads = omp_get_num_threads();
-    double partial_sums[num_threads];
-    for (int i = 0; i < num_threads; i++) {
+    int max_threads = omp_get_max_threads();
+    double partial_sums[max_threads];
+    for (int i = 0; i < max_threads; i++) {
         partial_sums[i] = 0.0;
     }
     double start_time = omp_get_wtime();
@@ -54,7 +54,7 @@ void block_decomposition_pi(long num_steps) {
         partial_sums[id] = local_sum;
     }
 
-    for (int i = 0; i < num_threads; i++) {
+    for (int i = 0; i < max_threads; i++) {
         sum += partial_sums[i];
     }
 
@@ -69,9 +69,9 @@ void block_decomposition_pi(long num_steps) {
 void cyclic_distribution_pi(long num_steps) {
     double step = 1.0 / (double)num_steps;
     double pi, sum = 0.0;
-    int num_threads = omp_get_num_threads();
-    double partial_sums[num_threads];
-    for (int i = 0; i < num_threads; i++) {
+    int max_threads = omp_get_max_threads();
+    double partial_sums[max_threads];
+    for (int i = 0; i < max_threads; i++) {
         partial_sums[i] = 0.0;
     }
     double start_time = omp_get_wtime();
@@ -91,7 +91,7 @@ void cyclic_distribution_pi(long num_steps) {
         partial_sums[id] = local_sum;
     }
 
-    for (int i = 0; i < num_threads; i++) {
+    for (int i = 0; i < max_threads; i++) {
         sum += partial_sums[i];
     }
 
