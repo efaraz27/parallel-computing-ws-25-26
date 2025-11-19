@@ -2,7 +2,7 @@
 #include <omp.h>
 #define THREADS 4
 
-static long global_num_steps = 10000000;
+static long global_num_steps = 1000000000;
 
 void sequential_pi(long num_steps) {
     double step = 1.0 / (double)num_steps;
@@ -106,11 +106,11 @@ void cyclic_distribution_pi(long num_steps) {
 int main() {
     printf("Calculating Pi approximation using N = %ld steps.\n\n", global_num_steps);
     
-    sequential_pi(global_num_steps);
-    printf("\n");
+    // sequential_pi(global_num_steps);
+    // printf("\n");
     
-    block_decomposition_pi(global_num_steps);
-    printf("\n");
+    // block_decomposition_pi(global_num_steps);
+    // printf("\n");
     
     cyclic_distribution_pi(global_num_steps);
 
