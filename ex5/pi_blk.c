@@ -150,28 +150,28 @@ int main(int argc, char *argv[]) {
         parallel_for_static_pi(global_num_steps, 0);
         printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 1000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 1000);
+        // printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 10000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 10000);
+        // printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 100000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 100000);
+        // printf("\n");
     }
     else if (strcmp(variant, "cyc") == 0) {
         printf("Cyclic Scheduling (static, chunk=1):\n");
         parallel_for_static_pi(global_num_steps, 1);
         printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 1000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 1000);
+        // printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 10000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 10000);
+        // printf("\n");
         
-        parallel_for_static_pi(global_num_steps, 100000);
-        printf("\n");
+        // parallel_for_static_pi(global_num_steps, 100000);
+        // printf("\n");
     }
     else if (strcmp(variant, "all") == 0) {
         sequential_pi(global_num_steps);
