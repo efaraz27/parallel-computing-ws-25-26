@@ -146,7 +146,7 @@ int main(int argc, char *argv[]) {
         sequential_pi(global_num_steps);
     }
     else if (strcmp(variant, "blk") == 0) {
-        printf("===== BLOCK SCHEDULING (STATIC) =====\n");
+        printf("Block Scheduling (static):\n");
         parallel_for_static_pi(global_num_steps, 0);
         printf("\n");
         
@@ -160,14 +160,14 @@ int main(int argc, char *argv[]) {
         printf("\n");
     }
     else if (strcmp(variant, "cyc") == 0) {
-        printf("===== CYCLIC SCHEDULING (STATIC, CHUNK=1) =====\n");
+        printf("Cyclic Scheduling (static, chunk=1):\n");
         parallel_for_static_pi(global_num_steps, 1);
     }
     else if (strcmp(variant, "all") == 0) {
         sequential_pi(global_num_steps);
         printf("\n");
         
-        printf("===== STATIC SCHEDULING =====\n");
+        printf("Static Scheduling (default chunk):\n");
         parallel_for_static_pi(global_num_steps, 0);
         printf("\n");
         
@@ -180,7 +180,7 @@ int main(int argc, char *argv[]) {
         parallel_for_static_pi(global_num_steps, 100000);
         printf("\n");
         
-        printf("===== DYNAMIC SCHEDULING =====\n");
+        printf("Dynamic Scheduling (default chunk):\n");
         parallel_for_dynamic_pi(global_num_steps, 0);
         printf("\n");
         
@@ -193,20 +193,23 @@ int main(int argc, char *argv[]) {
         parallel_for_dynamic_pi(global_num_steps, 100000);
         printf("\n");
 
-        printf("===== GUIDED SCHEDULING =====\n");
+        printf("Guided Scheduling (default chunk):\n");
         parallel_for_guided_pi(global_num_steps, 0);
         printf("\n");
         
+        printf("Guided Scheduling (chunk=1000):\n");
         parallel_for_guided_pi(global_num_steps, 1000);
         printf("\n");
         
+        printf("Guided Scheduling (chunk=10000):\n");
         parallel_for_guided_pi(global_num_steps, 10000);
         printf("\n");
         
+        printf("Guided Scheduling (chunk=100000):\n");
         parallel_for_guided_pi(global_num_steps, 100000);
         printf("\n");
         
-        printf("Set OMP_SCHEDULE environment variable to control scheduling\n");
+        printf("Runtime Scheduling (controlled by OMP_SCHEDULE):\n");
         printf("Examples: export OMP_SCHEDULE=\"static,1000\" or \"dynamic,10000\" or \"guided\"\n");
         parallel_for_runtime_pi(global_num_steps);
         printf("\n");
