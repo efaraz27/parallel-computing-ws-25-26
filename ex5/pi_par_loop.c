@@ -3,7 +3,7 @@
 #include <string.h>
 #include <omp.h>
 
-static long global_num_steps = 25000000L;
+static long global_num_steps = 25000000000L;
 
 double sequential_pi(long num_steps, double *time_out) {
     double step = 1.0 / (double) num_steps;
