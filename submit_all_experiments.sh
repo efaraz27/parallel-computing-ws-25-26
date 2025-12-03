@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd /home/fd0001542/parl_comp/ex5
+cd /home/fd0001542/parl_comp
 
 echo "Submitting sequential baseline..."
 sbatch --export=ALL,VARIANT=seq,THREADS=1,CHUNK=0 ./pi_experiment.sh
