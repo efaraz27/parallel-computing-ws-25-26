@@ -164,9 +164,11 @@ int main(int argc, char *argv[]) {
         double t, pi;
 
         if (strcmp(variant, "seq") == 0) {
+            printf("Running sequential variant\n");
             omp_set_num_threads(1);
             pi = sequential_pi(global_num_steps, &t);
         } else if (strcmp(variant, "static") == 0) {
+            printf("Running static variant\n");
             omp_set_num_threads(threads);
             if (chunk <= 0) {
                 pi = parallel_pi_static_default(global_num_steps, &t);
@@ -174,6 +176,7 @@ int main(int argc, char *argv[]) {
                 pi = parallel_pi_static(global_num_steps, chunk, &t);
             }
         } else if (strcmp(variant, "dynamic") == 0) {
+            printf("Running dynamic variant\n");
             omp_set_num_threads(threads);
             if (chunk <= 0) {
                 pi = parallel_pi_dynamic_default(global_num_steps, &t);
@@ -181,6 +184,7 @@ int main(int argc, char *argv[]) {
                 pi = parallel_pi_dynamic(global_num_steps, chunk, &t);
             }
         } else if (strcmp(variant, "guided") == 0) {
+            printf("Running guided variant\n");
             omp_set_num_threads(threads);
             if (chunk <= 0) {
                 pi = parallel_pi_guided_default(global_num_steps, &t);
@@ -188,6 +192,7 @@ int main(int argc, char *argv[]) {
                 pi = parallel_pi_guided(global_num_steps, chunk, &t);
             }
         } else if (strcmp(variant, "runtime") == 0) {
+            printf("Running runtime variant\n");
             omp_set_num_threads(threads);
             pi = parallel_pi_runtime(global_num_steps, &t);
         } else {
