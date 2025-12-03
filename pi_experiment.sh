@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-####### Mail Notify / Job Name / Comment #######
-#SBATCH --job-name="pi_${VARIANT}_${THREADS}_${CHUNK}"
-
 ####### Partition #######
 #SBATCH --partition=all
 
