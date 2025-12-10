@@ -18,4 +18,4 @@
 
 cd /home/fd0001542/parl_comp/ex8
 
-srun ./fib 10 20
+srun ./fib 15000000000 20000000000
