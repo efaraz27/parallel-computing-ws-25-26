@@ -52,13 +52,14 @@ static int verify_small_values(int cutoff) {
     for (int i = 0; i <= 10; ++i) {
         expected = fib_seq(i);
         got = fib_parallel(i, cutoff);
+        printf("n=%d: expected %lld, got %lld\n", i, expected, got);
+
         if (expected != got) {
             fprintf(stderr, "Mismatch at n=%d: expected %lld, got %lld\n", i,
                     expected, got);
             return 0;
         }
     }
-    printf("All values verified successfully\n. Expected: %lld, Got: %lld\n", expected, got);
     return 1;
 }
 
