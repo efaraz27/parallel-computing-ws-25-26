@@ -67,21 +67,6 @@ int main(int argc, char **argv) {
     int n = 40;
     int cutoff = DEFAULT_CUTOFF;
 
-    if (argc > 1) {
-        n = atoi(argv[1]);
-        if (n < 0) {
-            fprintf(stderr, "n must be non-negative\n");
-            return -1;
-        }
-    }
-    if (argc > 2) {
-        cutoff = atoi(argv[2]);
-        if (cutoff < 0) {
-            fprintf(stderr, "cutoff must be non-negative\n");
-            return -1;
-        }
-    }
-
     // verify_small_values(cutoff);
 
     double start = omp_get_wtime();
