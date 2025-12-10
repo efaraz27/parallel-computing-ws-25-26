@@ -64,8 +64,15 @@ static long long verify_small_values(long long cutoff) {
 }
 
 int main(int argc, char **argv) {
-    int n = 40;
-    int cutoff = DEFAULT_CUTOFF;
+    long long n = 40;
+    long long cutoff = DEFAULT_CUTOFF;
+
+    if (argc > 1) {
+        n = atoll(argv[1]);
+    }
+    if (argc > 2) {
+        cutoff = atoll(argv[2]);
+    }
 
     // verify_small_values(cutoff);
 
