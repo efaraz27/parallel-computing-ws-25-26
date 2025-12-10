@@ -47,15 +47,18 @@ static long long fib_parallel(int n, int cutoff) {
 }
 
 static int verify_small_values(int cutoff) {
+    long long expected = 0;
+    long long got = 0;
     for (int i = 0; i <= 10; ++i) {
-        long long expected = fib_seq(i);
-        long long got = fib_parallel(i, cutoff);
+        expected = fib_seq(i);
+        got = fib_parallel(i, cutoff);
         if (expected != got) {
             fprintf(stderr, "Mismatch at n=%d: expected %lld, got %lld\n", i,
                     expected, got);
             return 0;
         }
     }
+    printf("All values verified successfully\n. Expected: %lld, Got: %lld\n", expected, got);
     return 1;
 }
 
