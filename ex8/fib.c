@@ -85,8 +85,12 @@ int main(int argc, char **argv) {
     // verify_small_values(cutoff);
 
     double start = omp_get_wtime();
-    long long result = fib_parallel(n, cutoff);
+    long long result = fib_seq(n);
     double elapsed = omp_get_wtime() - start;
+
+    // double start = omp_get_wtime();
+    // long long result = fib_parallel(n, cutoff);
+    // double elapsed = omp_get_wtime() - start;
 
     printf("fib(%d) = %lld (cutoff=%d)\n", n, result, cutoff);
     printf("Elapsed time: %.6f seconds\n", elapsed);
