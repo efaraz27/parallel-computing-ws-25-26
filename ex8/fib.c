@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    verify_small_values(cutoff)
+    verify_small_values(cutoff);
 
     // double start = omp_get_wtime();
     // long long result = fib_parallel(n, cutoff);
