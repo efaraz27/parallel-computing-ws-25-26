@@ -18,4 +18,4 @@
 
 cd /home/fd0001542/parl_comp/ex9
 
-srun mpirun -n 2 ./ping_pong
+mpirun -n 2 ./ping_pong
