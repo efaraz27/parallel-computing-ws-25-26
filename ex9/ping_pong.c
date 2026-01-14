@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PING_PONG_LIMIT 5
+#define PING_PONG_LIMIT 4
 
 int main(int argc, char *argv[]) {
     int world_rank, world_size;
