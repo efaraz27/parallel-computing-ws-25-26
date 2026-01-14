@@ -34,12 +34,10 @@ int main(int argc, char *argv[]) {
             MPI_Send(&ping_pong_count, 1, MPI_INT, partner_rank, tag, MPI_COMM_WORLD);
             printf("Rank %d sent ping_pong_count %d to Rank %d\n",
                    world_rank, ping_pong_count, partner_rank);
-            fflush(stdout);
         } else {
             MPI_Recv(&ping_pong_count, 1, MPI_INT, partner_rank, tag, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
             printf("Rank %d received ping_pong_count %d from Rank %d\n",
                    world_rank, ping_pong_count, partner_rank);
-            fflush(stdout);
         }
     }
 
