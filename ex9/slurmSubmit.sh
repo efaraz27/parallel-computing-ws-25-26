@@ -10,7 +10,7 @@
 
 ####### Node Info #######
 #SBATCH --exclusive
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 
 ####### Output #######
 #SBATCH --output=/home/fd0001542/out/ping_pong.out.%j

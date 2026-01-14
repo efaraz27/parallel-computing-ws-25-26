@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define PING_PONG_LIMIT 20
+#define PING_PONG_LIMIT 5
 
 int main(int argc, char *argv[]) {
     int world_rank, world_size;
@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 
     if (world_size != 2) {
         if (world_rank == 0) {
-            fprintf(stderr, "Error: This program must be run with exactly 2 processes, but %d were provided.\n",
+            printf("Error: This program must be run with exactly 2 processes, but %d were provided.\n",
                     world_size);
         }
         MPI_Abort(MPI_COMM_WORLD, 1);
